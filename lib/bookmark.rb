@@ -19,7 +19,14 @@ class Bookmark
     else
       connection = PG.connect(dbname: 'bookmark_manager')
   end
+    return nil unless is_url?(options[:url])
+    connection.exec("INSERT INTO bookmarks (url) VALUES('#{options[:url]}')")
+    end
+  end
 
-  connection.exec("INSERT INTO bookmarks (url) VALUES('#{options[:url]}')")
+private
+
+def is_url?(url)
+  url =~ /\A#{URI::regexp(['http', 'https'])}\z/
 end
-end
+
