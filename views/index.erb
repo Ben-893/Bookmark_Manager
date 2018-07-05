@@ -1,6 +1,6 @@
 <h1> <%=flash[:notice]%></h1>
 <ul>
   <% @bookmarks.each do |bookmark| %>
-    <li><%= bookmark %></li>
+    <li><%= bookmark.url %></li>
   <% end %>
 </ul>

@@ -5,14 +5,14 @@ describe Bookmark do
     it 'returns all bookmarks' do
 
 
-      Bookmark.create(url: "http://makersacademy.com")
-      Bookmark.create(url: "http://twitter.com")
-      Bookmark.create(url: "http://google.com")
+    bookmark_1 = Bookmark.create(url: "http://makersacademy.com")
+    bookmark_2 = Bookmark.create(url: "http://twitter.com")
+    bookmark_3 = Bookmark.create(url: "http://google.com")
 
-      expected_bookmarks = [
-        'http://makersacademy.com',
-        'http://twitter.com',
-        'http://google.com'
+  expected_bookmarks = [
+      bookmark_1,
+      bookmark_2,
+      bookmark_3
       ]
 
       expect(Bookmark.all).to eq expected_bookmarks
@@ -21,9 +21,9 @@ describe Bookmark do
 
 describe '.create' do
   it 'creates a new bookmark' do
-    Bookmark.create(url: 'http://www.testbookmark.com')
+  anything_that_you_want = Bookmark.create(url: 'http://www.testbookmark.com')
 
-    expect(Bookmark.all).to include 'http://www.testbookmark.com'
+    expect(Bookmark.all).to include anything_that_you_want
     end
   end
 
