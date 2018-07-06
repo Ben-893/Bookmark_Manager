@@ -1,4 +1,4 @@
-require 'bookmark'
+require './models/bookmark'
 feature "adding a boomark" do
 scenario 'The bookmark must be a valid URL' do
   visit('/bookmarks/new')

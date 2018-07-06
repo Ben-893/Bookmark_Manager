@@ -26,10 +26,10 @@ end
       connection = PG.connect(dbname: 'bookmark_manager_test')
     else
       connection = PG.connect(dbname: 'bookmark_manager')
-  end
+    end
     return nil unless is_url?(options[:url])
-    anything = connection.exec("INSERT INTO bookmarks (url) VALUES('#{options[:url]}') RETURNING id, url;")
-    Bookmark.new(anything.first["id"], anything.first["url"])
+    query_result = connection.exec("INSERT INTO bookmarks (url) VALUES('#{options[:url]}') RETURNING id, url;")
+    Bookmark.new(query_result.first["id"], query_result.first["url"])
     end
 
 def ==(other)
@@ -39,5 +39,6 @@ def ==(other)
 
 def self.is_url?(url)
   url =~ /\A#{URI::regexp(['http', 'https'])}\z/
+
 end
 end

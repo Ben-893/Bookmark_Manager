@@ -1,4 +1,4 @@
-require 'bookmark'
+require_relative '../models/bookmark'
 
 describe Bookmark do
   describe '.all' do
