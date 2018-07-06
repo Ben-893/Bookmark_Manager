@@ -5,6 +5,7 @@ require 'uri'
 
 class BookmarkManager < Sinatra::Base
   register Sinatra::Flash
+  enable :sessions
 
   get '/bookmarks' do
     @bookmarks = Bookmark.all
